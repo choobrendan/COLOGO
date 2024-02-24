@@ -1,0 +1,63 @@
+<div class="logo-main">
+  <img class="logo-img" src="assets/images/logo.png">
+</div>
+
+<div class="body-main" *ngIf="!showNextPage &&!goGame">
+  <p>Choose a theme to get started</p>
+  <div class="start-buttons">
+    <button (click)="selectTheme('websites'); goToNextPage()" (mouseenter)="onMouseEnter()"
+      (mouseleave)="onMouseLeave()">Websites</button>
+    <button (click)="selectTheme('companies'); goToNextPage()" (mouseenter)="onMouseEnter()"
+      (mouseleave)="onMouseLeave()" disabled>Famous Companies</button>
+    <button (click)="selectTheme('fnb'); goToNextPage()" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()"
+      disabled>F&B</button>
+    <button (click)="selectTheme('football'); goToNextPage()" (mouseenter)="onMouseEnter()"
+      (mouseleave)="onMouseLeave()" disabled>Football Club Logos</button>
+    <!-- <button (click)="goToNextPage()" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">Help/About</button> -->
+  </div>
+</div>
+<div class="next-page" *ngIf="showNextPage&&!goGame">
+  <p>Select your difficulty!</p>
+  <div class="difficulty-buttons">
+    <button (click)="selectDifficulty(0); goToGame()" (mouseenter)="onMouseEnter()"
+      (mouseleave)="onMouseLeave()">Easy</button>
+    <button (click)="selectDifficulty(1); goToGame()" (mouseenter)="onMouseEnter()"
+      (mouseleave)="onMouseLeave()">Hard</button>
+    <button (click)="selectDifficulty(2);  goToGame()" (mouseenter)="onMouseEnter()"
+      (mouseleave)="onMouseLeave()">💀💀💀</button>
+    <button (click)="goToHomePage()" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">Back</button>
+  </div>
+</div>
+<div class="game" *ngIf="showNextPage && goGame">
+  <p class="what-is">{{promptText}}{{answerText}}</p>
+  <div class="colour-rack" *ngIf="showColourRack">
+    <div class="primary-color" [style.background-color]="primary" *ngIf="primary.includes('#')">
+      <p class="col-clue">primary</p>
+    </div>
+    <div class="secondary-color" [style.background-color]="secondary" *ngIf="secondary.includes('#')">
+      <p class="col-clue">secondary</p>
+    </div>
+    <div *ngFor="let color of others" class="other-color" [style.background-color]="color"></div>
+  </div>
+  <div *ngIf="showAnswerImg">
+    <img class="answer-img" [src]="answersrc">
+  </div>
+  <div class="hearts" *ngIf="showTextBox">
+    <span *ngFor="let heart of hearts" class="heart" [class.empty]="heart.empty"></span>
+  </div>
+  <div class="text-box" *ngIf="showTextBox">
+    <input type="text" class="answer-input" [(ngModel)]="inputValue" (keydown.enter)="checkSimilarity()">
+  </div>
+
+  <div class="nextQuestion" *ngIf="showAnswerImg">
+    <button (click)="answered !== 5 ? goToGame() : finishGame()" (mouseenter)="onMouseEnter()"
+      (mouseleave)="onMouseLeave()">Oke</button>
+
+  </div>
+  <div class="finishGame" *ngIf="showResult">
+    <p>Wow!</p>
+    <p>You got {{score}}/5!</p>
+    <button (click)="refreshGame()" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">Noted with
+      thanks</button>
+  </div>
+</div>

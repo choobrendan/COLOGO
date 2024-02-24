@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.logo-main,.body-main,.next-page,.game{
+/* height:90vh; */
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+.logo-img{
+
+  max-height: 128px;
+
+}
+h1{
+
+font-family: Anta;
+font-size: 64px;
+}
+p{
+
+  font-family: Montserrat;
+  font-size: 32px;
+
+}
+.start-buttons,.difficulty-buttons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height:350px;
+  justify-content: space-around;
+  }
+button{
+
+
+
+width:250px;
+
+display: inline-block;
+outline: none;
+cursor: pointer;
+font-size: 16px;
+line-height: 20px;
+font-weight: 600;
+border-radius: 8px;
+padding: 13px 23px;
+border: 1px solid #222222;
+transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+background: #f5f5f5;
+color: #222222;
+font-family: Montserrat;
+  }
+
+  button:hover {
+    border-color: #000000;
+    background: #e7f7f7;
+  }
+
+ button.transition {
+    transition: background-color 0.8s ease;
+  }
+
+.colour-rack{
+
+width: 400px;
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+align-items: center;
+justify-items: center;
+margin-top: 20px;
+margin-bottom: 60px;
+}
+  .primary-color,.secondary-color,.other-color{
+    font-family: Montserrat;
+width:50px;
+height:50px;
+border: 2px solid #040404;
+text-align: center;
+display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+.col-clue{
+font-size: 16px;
+display: flex;
+position: relative;
+top:50px;
+
+
+}
+
+  .answer-input{
+
+    font-family: Montserrat;
+    width: 100%;
+    color: rgb(36, 35, 42);
+    font-size: 16px;
+    line-height: 24px;
+    min-height: 36px;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+    background: rgb(251, 251, 251);
+    transition: all 0.1s ease 0s;
+    :focus{
+        border: 2px solid rgb(124, 138, 255);
+    }
+
+
+  }
+  .hearts{
+
+display: flex;
+flex-direction: row;
+width:250px;
+justify-items: left;
+padding-bottom: 40px;
+  }
+  .heart {
+    display: block;
+    --c: red;
+    width: 40px;
+    height:40px;
+    margin-right: 10px;
+    aspect-ratio: 1;
+    background:
+     radial-gradient(circle at 60% 65%,var(--c) 64%,#0000 65%) top left/50% 50%,
+     radial-gradient(circle at 40% 65%,var(--c) 64%,#0000 65%) top right/50% 50%,
+     conic-gradient(from -45deg at 50% 85.5%,var(--c) 90deg,#0000 0) bottom/100% 50%;
+    background-repeat: no-repeat;
+  }
+.answer-img{
+
+  max-height:180px;
+
+
+}
+
+.nextQuestion{
+
+padding-top: 20px;
+
+}
+
+button:disabled {
+  /* Add your disabled button styles here */
+  opacity: 0.5; /* Example: Reduce opacity to visually indicate disabled state */
+  cursor: not-allowed; /* Example: Change cursor to indicate unclickable */
+  /* Add any other styles you want to apply to disabled buttons */
+}
+
+
+
